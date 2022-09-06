@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -53,17 +54,26 @@ public class MainActivity extends AppCompatActivity {
                                     JSONObject place = jsonArray.getJSONObject(i);
 
                                     String name = place.getString("name");
-//                                    String distance = place.getString("distance");
-//                                    String img = place.getString("icon.prefix")+place.getString("icon.suffix");
+                                    JSONArray categories = place.getJSONArray("categories");
+                                    JSONObject category = categories.getJSONObject(0);
+                                    JSONObject icon = category.getJSONObject("icon");
+
+                                    String img = icon.getString("prefix")+ icon.getString("suffix");
 
                                     LayoutInflater lf = getLayoutInflater();
                                     View myLayout = lf.inflate(R.layout.layout, null);
                                     TextView card = myLayout.findViewById(R.id.maintext);
                                     card.setText(name);
+
 //                                    ImageView cardimg = myLayout.findViewById(R.id.cardimg);
 //                                    cardimg.setImageIcon(img);
 //                                    TextView othertxt = myLayout.findViewById(R.id.desctxt);
 //                                    othertxt.setText(distance);
+
+                                    ImageView cardimg = myLayout.findViewById(R.id.cardimg);
+                                    ImageLoader imageLoader = new ImageLoader(this);
+                                    imageLoader.DisplayImage(img, cardimg);
+
                                     linearLayout.addView(myLayout);
                                 }
                             } catch (JSONException e) {
