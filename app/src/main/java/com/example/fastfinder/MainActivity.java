@@ -54,25 +54,15 @@ public class MainActivity extends AppCompatActivity {
                                     JSONObject place = jsonArray.getJSONObject(i);
 
                                     String name = place.getString("name");
-                                    JSONArray categories = place.getJSONArray("categories");
-                                    JSONObject category = categories.getJSONObject(0);
-                                    JSONObject icon = category.getJSONObject("icon");
 
-                                    String img = icon.getString("prefix")+ icon.getString("suffix");
 
                                     LayoutInflater lf = getLayoutInflater();
                                     View myLayout = lf.inflate(R.layout.layout, null);
                                     TextView card = myLayout.findViewById(R.id.maintext);
                                     card.setText(name);
-
-//                                    ImageView cardimg = myLayout.findViewById(R.id.cardimg);
-//                                    cardimg.setImageIcon(img);
-//                                    TextView othertxt = myLayout.findViewById(R.id.desctxt);
-//                                    othertxt.setText(distance);
-
                                     ImageView cardimg = myLayout.findViewById(R.id.cardimg);
-                                    ImageLoader imageLoader = new ImageLoader(this);
-                                    imageLoader.DisplayImage(img, cardimg);
+
+                                    makeImage(place.getString("fsq_id"), cardimg);
 
                                     linearLayout.addView(myLayout);
                                 }
@@ -92,5 +82,12 @@ public class MainActivity extends AppCompatActivity {
                 };
         Log.d("findlopl", "text");
         mQueue.add(request);
+    }
+    public void makeImage(String id, ImageView view){
+
+        String img = "";
+
+        ImageLoader imageLoader = new ImageLoader(this);
+        imageLoader.DisplayImage(img, view);
     }
 }
