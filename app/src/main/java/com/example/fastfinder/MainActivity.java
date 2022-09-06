@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    ImageLoader imageLoader = new ImageLoader(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,11 @@ public class MainActivity extends AppCompatActivity {
                                     JSONObject place = jsonArray.getJSONObject(i);
 
                                     String name = place.getString("name");
+                                    JSONArray categories = place.getJSONArray("categories");
+                                    JSONObject category = categories.getJSONObject(0);
+                                    JSONObject icon = category.getJSONObject("icon");
 
+                                    String img = icon.getString("prefix")+ "64"+icon.getString("suffix");
 
                                     LayoutInflater lf = getLayoutInflater();
                                     View myLayout = lf.inflate(R.layout.layout, null);
@@ -62,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
                                     card.setText(name);
                                     ImageView cardimg = myLayout.findViewById(R.id.cardimg);
 
-                                    makeImage(place.getString("fsq_id"), cardimg);
+                                    Log.d("imagetest1", img);
+                                    imageLoader.DisplayImage(img, cardimg);
+
 
                                     linearLayout.addView(myLayout);
                                 }
@@ -82,12 +89,5 @@ public class MainActivity extends AppCompatActivity {
                 };
         Log.d("findlopl", "text");
         mQueue.add(request);
-    }
-    public void makeImage(String id, ImageView view){
-
-        String img = "";
-
-        ImageLoader imageLoader = new ImageLoader(this);
-        imageLoader.DisplayImage(img, view);
     }
 }

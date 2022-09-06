@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.File;
@@ -66,19 +67,21 @@ public class ImageLoader {
         try {
             Bitmap bitmap = null;
             URL imageUrl = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) imageUrl
-                    .openConnection();
+            HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
             conn.setConnectTimeout(30000);
             conn.setReadTimeout(30000);
             conn.setInstanceFollowRedirects(true);
             InputStream is = conn.getInputStream();
+//            Log.d("hlo", url);
             OutputStream os = new FileOutputStream(f);
+            Log.d("hlop", url);
             Utils.CopyStream(is, os);
             os.close();
             conn.disconnect();
             bitmap = decodeFile(f);
             return bitmap;
         } catch (Throwable ex) {
+            Log.d("hlop", String.valueOf(ex));
             ex.printStackTrace();
             if (ex instanceof OutOfMemoryError)
                 memoryCache.clear();
