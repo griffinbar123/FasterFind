@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void SearchByTopic(LinearLayout linearLayout,String tag){
         linearLayout.removeAllViews();
-        String url = "https://api.spoonacular.com/recipes/random?apiKey=5a331ae9ccfd4285a5c351493fd87cc3&number=5"+tag;
+        String url = "https://api.spoonacular.com/recipes/random?apiKey=5a331ae9ccfd4285a5c351493fd87cc3&number=25"+tag;
 
         StringRequest sr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
