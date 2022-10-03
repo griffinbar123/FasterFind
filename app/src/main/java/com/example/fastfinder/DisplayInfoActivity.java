@@ -1,7 +1,6 @@
 package com.example.fastfinder;
 
 import static com.example.fastfinder.MainActivity.ID;
-import static com.example.fastfinder.MainActivity.TITLE;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,20 +36,17 @@ public class DisplayInfoActivity extends AppCompatActivity {
         setTitle("Recipe Information");
 
         Intent intent = getIntent();
-        Title = intent.getStringExtra(TITLE);
+
         String ids = intent.getStringExtra(ID);
 //        Desc = intent.getStringExtra(DESC);
         Id = Integer.parseInt(ids);
-
-        TextView maintitle = findViewById(R.id.maintitle);
-        maintitle.setText(Title);
 
         getSpecific();
     }
     public void getSpecific(){
         LinearLayout linearLayout = findViewById(R.id.ingredients);
         linearLayout.removeAllViews();
-        String url = "https://api.spoonacular.com/recipes/" + Integer.toString(Id) + "/information?apiKey=5a331ae9ccfd4285a5c351493fd87cc3&includeNutrition=false";
+        String url = "https://api.spoonacular.com/recipes/" + Integer.toString(Id) + "/information?apiKey=6fa8c58e0fd84b3082ba8464c23037df&includeNutrition=false";
 
         StringRequest sr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -59,6 +55,9 @@ public class DisplayInfoActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String image_url = jsonObject.getString("image");
+                    String Title = jsonObject.getString("title");
+                    TextView maintitle = findViewById(R.id.maintitle);
+                    maintitle.setText(Title);
                     ImageView mai_img = findViewById(R.id.maiimg);
                     Picasso.get().load(image_url).into(mai_img);
                     JSONArray recipes = jsonObject.getJSONArray("extendedIngredients");

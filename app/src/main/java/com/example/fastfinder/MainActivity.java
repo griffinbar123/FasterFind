@@ -28,7 +28,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TITLE = "com.example.fastfinder.MESSAGE";
     public static final String ID = "com.example.fastfinder.MESSAGE2";
 
 
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void SearchByTopic(LinearLayout linearLayout,String tag){
         linearLayout.removeAllViews();
-        String url = "https://api.spoonacular.com/recipes/random?apiKey=5a331ae9ccfd4285a5c351493fd87cc3&number=5"+tag;
+        String url = "https://api.spoonacular.com/recipes/random?apiKey=6fa8c58e0fd84b3082ba8464c23037df&number=20"+tag;
 
         StringRequest sr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -162,14 +161,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showInfo(View view){
+        TextView tview = (TextView) view;
         Intent intent = new Intent(this, DisplayInfoActivity.class);
-        TextView card = findViewById(R.id.maintext);
 //        TextView desc = findViewById(R.id.desc);
-        TextView id = findViewById(R.id.ids);
 //        String summary = desc.getText().toString();
-        String ids = id.getText().toString();
-        String title = card.getText().toString();
-        intent.putExtra(TITLE, title);
+        String ids = tview.getText().toString();
 //        intent.putExtra(DESC, summary);
         intent.putExtra(ID, ids);
         startActivity(intent);
@@ -203,10 +199,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void getResults(View view){
         LinearLayout linearLayout = findViewById(R.id.explore2);
+        LinearLayout linearLayout2 = findViewById(R.id.explore);
+        linearLayout.removeAllViews();
+        linearLayout2.removeAllViews();
         EditText sb = findViewById(R.id.searchbar);
         String query = sb.getText().toString().toLowerCase();
 
-        String url ="https://api.spoonacular.com/recipes/complexSearch?apiKey=5a331ae9ccfd4285a5c351493fd87cc3&query="+query;
+        String url ="https://api.spoonacular.com/recipes/complexSearch?apiKey=6fa8c58e0fd84b3082ba8464c23037df&query="+query;
         StringRequest sr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

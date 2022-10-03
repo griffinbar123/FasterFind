@@ -12,11 +12,24 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
+        android:onClick="showInfo"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginVertical="15dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="7dp"
         app:cardCornerRadius="25dp">
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/ids"
+            android:onClick="showInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-black"
+
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,10 +38,9 @@
 
 
             <ImageView
-                android:contentDescription="none"
                 android:id="@+id/cardimg"
                 android:layout_width="match_parent"
-                android:layout_height="94dp"
+                android:layout_height="136dp"
                 android:scaleType="centerCrop"
 
                 />
@@ -43,6 +55,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textSize="15sp" />
+
 
 
         </LinearLayout>

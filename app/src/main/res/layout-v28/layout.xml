@@ -12,13 +12,24 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
-        android:onClick="showInfo"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="7dp"
         app:cardCornerRadius="25dp">
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/ids"
+            android:textColor="#07000000"
+            android:onClick="showInfo"
+            android:background="#07000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-black"
 
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="15sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -43,26 +54,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textSize="15sp" />
-            <TextView
-                android:visibility="invisible"
-                android:id="@+id/ids"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-black"
 
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textSize="15sp" />
-            <TextView
-                android:visibility="invisible"
-                android:id="@+id/desc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif-black"
-
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textSize="15sp" />
 
 
         </LinearLayout>
