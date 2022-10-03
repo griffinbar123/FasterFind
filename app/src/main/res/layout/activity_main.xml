@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlContainer"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,16 +9,13 @@
     android:background="@color/green_500"
     >
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
             android:id="@+id/lin"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="55dp"
             android:orientation="vertical">
 
             <TextView
@@ -28,34 +26,186 @@
                 android:text="@string/browse"
                 android:textColor="@color/white"
                 android:textSize="34sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/explore"
-                android:textSize="22sp"
-                android:textColor="@color/white"
-                android:fontFamily="sans-serif-medium"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="8dp"
-                />
+
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="none"
-                >
+                android:scrollbars="none">
                 <LinearLayout
-                    android:id="@+id/explore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/explore_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/explore"
+                        android:textColor="@color/gray_600"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="12dp"
+                        android:background="@drawable/round"
+                        android:textSize="17sp"
+                        android:onClick="jsonParseExplore"
+                        android:layout_marginRight="8dp"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/veg_button"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/vegetarian"
+                        android:textColor="@color/gray_600"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="12dp"
+                        android:background="@drawable/round"
+                        android:textSize="17sp"
+                        android:onClick="jsonParseVegetarian"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/des_btn"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/dessert"
+                        android:textColor="@color/gray_600"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="12dp"
+                        android:background="@drawable/round"
+                        android:textSize="17sp"
+                        android:onClick="jsonParseDessert"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/sav_btn"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/savory"
+                        android:textColor="@color/gray_600"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="12dp"
+                        android:background="@drawable/round"
+                        android:textSize="17sp"
+                        android:onClick="jsonParseSavory"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/ve_btn"
+                        android:layout_marginRight="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Vegan"
+                        android:textColor="@color/gray_600"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="12dp"
+                        android:background="@drawable/round"
+                        android:textSize="17sp"
+                        android:onClick="jsonParseVegan"
+                        />
 
                 </LinearLayout>
-
             </HorizontalScrollView>
 
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/explore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="55dp"
+                    android:orientation="vertical">
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
-    </ScrollView>
+    <LinearLayout
+        android:id="@+id/lin2"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="55dp"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:text="Search"
+        android:textColor="@color/white"
+        android:textSize="34sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="5dp"
+            android:background="@drawable/round3"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search1"
+                />
+            <EditText
+
+                android:id="@+id/searchbar"
+                android:hint="Enter desired Dish or Recipe:"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/round3"
+                />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Search"
+            android:background="@drawable/round4"
+            android:layout_marginHorizontal="2dp"
+            android:onClick="getResults"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/explore2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="55dp"
+                android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

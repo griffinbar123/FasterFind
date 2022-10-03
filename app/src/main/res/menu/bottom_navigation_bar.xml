@@ -5,6 +5,7 @@
         android:enabled="true"
         android:title="@string/home"
         android:icon="@drawable/home1"
+        android:onClick="goHome"
 
         />
     <item
@@ -12,5 +13,6 @@
         android:enabled="true"
         android:title="@string/search"
         android:icon="@drawable/search1"
+        android:onClick="goSearch"
         />
 </menu>

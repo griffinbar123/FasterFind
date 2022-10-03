@@ -4,4 +4,7 @@
     <string name="search">Search</string>
     <string name="browse">Browse</string>
     <string name="explore">Explore</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="dessert">Dessert</string>
+    <string name="savory">Savory</string>
 </resources>

@@ -12,9 +12,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
-        android:layout_width="136dp"
-        android:layout_height="136dp"
-        android:layout_marginHorizontal="5dp"
+        android:onClick="showInfo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="7dp"
         app:cardCornerRadius="25dp">
 
         <LinearLayout
@@ -26,12 +28,34 @@
             <ImageView
                 android:id="@+id/cardimg"
                 android:layout_width="match_parent"
-                android:layout_height="94dp"
-                android:scaleType="centerCrop" />
+                android:layout_height="136dp"
+                android:scaleType="centerCrop"
+
+                />
             <!--                android:src="@drawable/home1" />-->
 
             <TextView
                 android:id="@+id/maintext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-black"
+
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+            <TextView
+                android:visibility="invisible"
+                android:id="@+id/ids"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-black"
+
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+            <TextView
+                android:visibility="invisible"
+                android:id="@+id/desc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-black"
