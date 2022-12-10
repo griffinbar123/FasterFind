@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         view.setBackgroundResource(R.drawable.round2);
         LinearLayout linearLayout = findViewById(R.id.explore);
-        SearchByTopic(linearLayout, "");
+        SearchByTopic(linearLayout, "");//
     }
 
     public void jsonParseVegetarian(View view){
