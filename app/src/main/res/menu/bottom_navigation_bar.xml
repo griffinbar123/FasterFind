@@ -16,6 +16,20 @@
         android:onClick="goSearch"
         />
     <item
+        android:id="@+id/saved"
+        android:enabled="true"
+        android:title="@string/saved"
+        android:icon="@drawable/saved"
+        android:onClick="goSaved"
+        />
+    <item
+        android:id="@+id/info"
+        android:enabled="true"
+        android:title="More"
+        android:icon="@drawable/display_info_icon"
+        android:onClick="goInfo"
+        />
+    <item
         android:id="@+id/signout"
         android:enabled="true"
         android:title="@string/log_out"

@@ -11,14 +11,14 @@
     >
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card"
+        android:id="@+id/card2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="7dp"
         app:cardCornerRadius="25dp">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/card_bg"
+            android:id="@+id/card_bg2"
             android:background="#E8E8E8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,19 +26,18 @@
 
 
             <ImageView
-                android:id="@+id/cardimg"
+                android:id="@+id/cardimg2"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintTop_toTopOf="@id/card_bg"
-                app:layout_constraintLeft_toLeftOf="@id/card_bg"
-                app:layout_constraintRight_toRightOf="@id/card_bg"
+                app:layout_constraintTop_toTopOf="@id/card_bg2"
+                app:layout_constraintLeft_toLeftOf="@id/card_bg2"
+                app:layout_constraintRight_toRightOf="@id/card_bg2"
                 />
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/card_bg_44"
-                app:layout_constraintTop_toTopOf="@id/card_bg"
+                app:layout_constraintTop_toTopOf="@id/card_bg2"
                 android:background="@drawable/round6"
-                app:layout_constraintRight_toRightOf="@id/card_bg"
+                app:layout_constraintRight_toRightOf="@id/card_bg2"
                 android:padding="5dp"
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
@@ -46,21 +45,21 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/save_recipe"
+                    android:src="@drawable/delete_recipe"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     />
                 <TextView
-                    android:id="@+id/ids2"
+                    android:id="@+id/ids4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:onClick="handleSave"
+                    android:onClick="handleUnSave"
                     android:textColor="#07000000"
                     android:textSize="1sp"
                     android:padding="8dp"
@@ -69,20 +68,20 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
-                android:id="@+id/maintext"
+                android:id="@+id/maintext2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                app:layout_constraintTop_toBottomOf="@id/cardimg"
-                app:layout_constraintLeft_toLeftOf="@id/card_bg"
-                app:layout_constraintRight_toRightOf="@id/card_bg"
-                app:layout_constraintBottom_toBottomOf="@id/card_bg"
+                app:layout_constraintTop_toBottomOf="@id/cardimg2"
+                app:layout_constraintLeft_toLeftOf="@id/card_bg2"
+                app:layout_constraintRight_toRightOf="@id/card_bg2"
+                app:layout_constraintBottom_toBottomOf="@id/card_bg2"
                 android:textAlignment="center"
                 android:textSize="15sp" />
 
             <TextView
                 android:visibility="visible"
-                android:id="@+id/ids"
+                android:id="@+id/ids3"
                 android:textColor="#07000000"
                 android:onClick="showInfo"
                 android:background="#07000000"

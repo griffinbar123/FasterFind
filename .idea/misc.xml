@@ -11,7 +11,8 @@
         <entry key="app/src/main/res/drawable/round3.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/round4.xml" value="0.233" />
         <entry key="app/src/main/res/drawable/round5.xml" value="0.1515" />
-        <entry key="app/src/main/res/layout-v28/layout.xml" value="0.3964102564102564" />
+        <entry key="app/src/main/res/drawable/round6.xml" value="0.1515" />
+        <entry key="app/src/main/res/layout-v28/layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_display_info.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
@@ -19,6 +20,7 @@
         <entry key="app/src/main/res/layout/activity_sign_up_activty.xml" value="0.29375" />
         <entry key="app/src/main/res/layout/ingreds.xml" value="0.40260416666666665" />
         <entry key="app/src/main/res/layout/layout.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/saved_card.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/menu/bottom_navigation_bar.xml" value="0.33" />
       </map>
     </option>
