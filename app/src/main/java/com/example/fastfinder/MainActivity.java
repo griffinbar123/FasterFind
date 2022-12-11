@@ -87,23 +87,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if(handleStart()) {
             setContentView(R.layout.activity_main);
+            Button btn = findViewById(R.id.explore_button);
             linearLayout = findViewById(R.id.explore);
             linearLayout2 = findViewById(R.id.explore2);
             linearLayout3 = findViewById(R.id.explore_saved);
             linearLayout4 = findViewById(R.id.ingredients);
             nm = findViewById(R.id.bottom_navigation);
             api_key = getString(R.string.api_key);
-            database = FirebaseDatabase.getInstance();
-            setTitle("FoodBrowser");
-            Button btn = findViewById(R.id.explore_button);
-
-            SearchByTopic("", browseViews);
-//            SearchByTopic("&tags=vegetarian", vegeViews);
-//            SearchByTopic("&tags=vegan", vegViews);
-//            SearchByTopic("&tags=dessert", dessViews);
-//            SearchByTopic("&tags=savory", savViews);
-
             jsonParseExplore(btn);
+            database = FirebaseDatabase.getInstance();
+            setTitle("FasterFinder");
             setUpListener();
         }
     }
@@ -279,6 +272,8 @@ public class MainActivity extends AppCompatActivity {
         String ids2 = viewt.getText().toString();
         TextView tv = findViewById(R.id.savebtnn2);
         TextView tv2 = findViewById(R.id.savebtnn);
+        TextView tv4 = findViewById(R.id.savebtnn4);
+        TextView tv3 = findViewById(R.id.savebtnn3);
         int id = Integer.parseInt(ids2);
         IngredientModel im = new IngredientModel(email, id);
         boolean tflag = false;
@@ -293,9 +288,13 @@ public class MainActivity extends AppCompatActivity {
             if(recentId==im.getId()){
                 tv.setVisibility(View.GONE);
                 tv2.setVisibility(View.GONE);
+                tv3.setVisibility(View.VISIBLE);
+                tv4.setVisibility(View.VISIBLE);
             } else {
                 tv.setVisibility(View.VISIBLE);
                 tv2.setVisibility(View.VISIBLE);
+                tv4.setVisibility(View.GONE);
+                tv3.setVisibility(View.GONE);
             }
         } else {
             Toast.makeText(MainActivity.this, "Dish Already Saved", Toast.LENGTH_SHORT).show();
@@ -317,10 +316,13 @@ public class MainActivity extends AppCompatActivity {
         return im;
     }
     public void handleUnSave(View view){
+        TextView tv = findViewById(R.id.savebtnn2);
+        TextView tv2 = findViewById(R.id.savebtnn);
+        TextView tv4 = findViewById(R.id.savebtnn4);
+        TextView tv3 = findViewById(R.id.savebtnn3);
         TextView viewt = (TextView) view;
         String ids2 = viewt.getText().toString();
         int id = Integer.parseInt(ids2);
-        idsOfSaved.remove(id);
         Query ingredients = database.getReference().child("ingredients");
         ingredients.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -329,7 +331,18 @@ public class MainActivity extends AppCompatActivity {
                 for(DataSnapshot data: dataSnapshot.getChildren()){
                     IngredientModel im = convertFbToIM((Map<String, Object>) data.getValue());
                     if(im.getEmail().equals(email) && im.getId()==id){
-                        dataSnapshot.getRef().removeValue();
+                        data.getRef().removeValue();
+                        if(recentId==im.getId()){
+                            tv.setVisibility(View.VISIBLE);
+                            tv2.setVisibility(View.VISIBLE);
+                            tv4.setVisibility(View.GONE);
+                            tv3.setVisibility(View.GONE);
+                        } else {
+                            tv.setVisibility(View.GONE);
+                            tv2.setVisibility(View.GONE);
+                            tv3.setVisibility(View.VISIBLE);
+                            tv4.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
             }
@@ -338,13 +351,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("TAG", "onCancelled", databaseError.toException());
             }
         });
-        getSavedResults();
     }
     public void showInfo(View view){
         TextView tview = (TextView) view;
         String ids = tview.getText().toString();
         recentId = Integer.parseInt(ids);
-        goInfo();
+        goInfo(recentId);
     }
     public void changeTabs(int a, int s, int d, boolean flag, boolean flag2){
         LinearLayout ll = findViewById(a);
@@ -369,21 +381,28 @@ public class MainActivity extends AppCompatActivity {
         view.setChecked(true);
     }
     public void goInfo(MenuItem view){
-        goInfo();
+        goInfo(recentId);
         view.setChecked(true);
     }
-    public void goInfo(){
+    public void goInfo(int recentId){
         changeTabs(R.id.lin2, R.id.lin3, R.id.lin, false, true);
         TextView tv = findViewById(R.id.savebtnn2);
         TextView tv2 = findViewById(R.id.savebtnn);
+        TextView tv4 = findViewById(R.id.savebtnn4);
+        TextView tv3 = findViewById(R.id.savebtnn3);
         if(idsOfSaved.contains(recentId)){
             tv.setVisibility(View.GONE);
             tv2.setVisibility(View.GONE);
+            tv4.setVisibility(View.VISIBLE);
+            tv3.setVisibility(View.VISIBLE);
         } else {
             tv.setVisibility(View.VISIBLE);
             tv2.setVisibility(View.VISIBLE);
+            tv3.setVisibility(View.GONE);
+            tv4.setVisibility(View.GONE);
         }
         tv.setText(valueOf(recentId));
+        tv4.setText(valueOf(recentId));
         getSpecific();
     }
     public void handleSignOut(View view){
