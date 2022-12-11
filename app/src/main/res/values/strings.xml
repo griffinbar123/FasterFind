@@ -7,4 +7,6 @@
     <string name="vegetarian">Vegetarian</string>
     <string name="dessert">Dessert</string>
     <string name="savory">Savory</string>
+    <string name="api_key">041740a6479f4d7d835f7899d43e63fe</string>
+    <string name="log_out">Log Out</string>
 </resources>

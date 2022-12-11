@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +18,10 @@
         android:theme="@style/Theme.FastFinder"
         tools:targetApi="31">
         <activity
-            android:name=".SearchActivity"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivty"
             android:exported="false" />
         <activity
             android:name=".DisplayInfoActivity"

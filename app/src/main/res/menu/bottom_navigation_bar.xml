@@ -15,4 +15,11 @@
         android:icon="@drawable/search1"
         android:onClick="goSearch"
         />
+    <item
+        android:id="@+id/signout"
+        android:enabled="true"
+        android:title="@string/log_out"
+        android:icon="@drawable/sign_out"
+        android:onClick="goSignOut"
+        />
 </menu>
