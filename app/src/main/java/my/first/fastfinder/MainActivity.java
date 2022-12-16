@@ -1,10 +1,8 @@
-package com.example.fastfinder;
+package my.first.fastfinder;
 
 import static java.lang.String.valueOf;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,15 +25,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -54,9 +47,6 @@ import java.util.Objects;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String ID = "com.example.fastfinder.MESSAGE2";
-    public static final String EMAIL = "com.example.fastfinder.MESSAGE1";
-    public static final String SAVED = "com.example.fastfinder.MESSAGE3";
     public List<View> browseViews = new ArrayList<View>();
     public List<View> vegeViews = new ArrayList<View>();
     public List<View> dessViews = new ArrayList<View>();

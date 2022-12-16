@@ -1,4 +1,4 @@
-package com.example.fastfinder;
+package my.first.fastfinder;
 
 public class IngredientModel {
     public String email;

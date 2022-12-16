@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.fastfinder">
+    package="my.first.fastfinder">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,7 +18,7 @@
         android:theme="@style/Theme.FastFinder"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name="my.first.fastfinder.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivty"

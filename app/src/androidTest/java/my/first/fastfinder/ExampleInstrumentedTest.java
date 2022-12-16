@@ -1,4 +1,4 @@
-package com.example.fastfinder;
+package my.first.fastfinder;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.fastfinder", appContext.getPackageName());
+        assertEquals("my.first.fastfinder", appContext.getPackageName());
     }
 }

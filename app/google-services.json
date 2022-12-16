@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "548402488800",
-    "project_id": "fasterfind-d902c",
-    "storage_bucket": "fasterfind-d902c.appspot.com"
+    "project_number": "639346965213",
+    "project_id": "fasterfind-3d6e2",
+    "storage_bucket": "fasterfind-3d6e2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:548402488800:android:8eb86750a4b98b1727b785",
+        "mobilesdk_app_id": "1:639346965213:android:cab53b4d7cc7ed3b867934",
         "android_client_info": {
-          "package_name": "com.example.fastfinder"
+          "package_name": "my.first.fastfinder"
         }
       },
       "oauth_client": [
         {
-          "client_id": "548402488800-gm8fuasnbnm2l4e1dntqt45j0g1e8t1u.apps.googleusercontent.com",
+          "client_id": "639346965213-2l1t74rn4to9ob52c84108f2bni3qks6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCSkPqoB6lmFZLqv-j5BkghoApjEmLd2Ps"
+          "current_key": "AIzaSyBxaX7T1PyWI80U1KdNqTyhOex6f3v7zpY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "548402488800-gm8fuasnbnm2l4e1dntqt45j0g1e8t1u.apps.googleusercontent.com",
+              "client_id": "639346965213-2l1t74rn4to9ob52c84108f2bni3qks6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
